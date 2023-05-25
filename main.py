@@ -24,3 +24,8 @@ analistas1 = tabla3.query('cargo=="analista1"')
 analistas2 = tabla3.query('cargo=="analistas2"')
 
 jubilados = tabla3.query('edad>=50')
+
+#Generamos tablas
+crearTabla(analistas1, "analistas1")
+crearTabla(analistas2, "analistas2")
+crearTabla(jubilados, "jubilados")
