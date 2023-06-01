@@ -1,5 +1,7 @@
 import pandas as pd
 from data.data1 import apartamento1, apartamento2
+from helpers.graficandoTortas import graficarPromediosSalariales
+from helpers.graficandobarras import graficarPromedioSalarial
 from helpers.crearTablasHTML import crearTabla
 #from data.data1 import apartamento2
 
@@ -21,7 +23,7 @@ tabla3 = pd.read_csv("./data/empleados.csv")
 
 analistas1 = tabla3.query('cargo=="analista1"')
 
-analistas2 = tabla3.query('cargo=="analistas2"')
+analistas2 = tabla3.query('cargo=="analista2"')
 
 jubilados = tabla3.query('edad>=50')
 
@@ -29,3 +31,7 @@ jubilados = tabla3.query('edad>=50')
 crearTabla(analistas1, "analistas1")
 crearTabla(analistas2, "analistas2")
 crearTabla(jubilados, "jubilados")
+
+#Generamos graficas
+graficarPromedioSalarial(jubilados, 'cargo', 'salario', 'promedioJubilados')
+graficarPromediosSalariales(analistas1, [20, 30, 40, 50, 60], 'edad', 'salario', 'promediosAnalistas1')
